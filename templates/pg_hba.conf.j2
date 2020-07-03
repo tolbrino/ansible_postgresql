@@ -17,8 +17,8 @@
 #
 # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
-# Default:
-{% for connection in postgresql_pg_hba_default %}
+# User custom
+{% for connection in postgresql_pg_hba_custom %}
 {% if connection.comment is defined %}
 # {{connection.comment}}
 {% endif %}
@@ -40,8 +40,8 @@ host  all  all  {{host}}  password
 host  all  all  {{host}}  trust
 {% endfor %}
 
-# User custom
-{% for connection in postgresql_pg_hba_custom %}
+# Default:
+{% for connection in postgresql_pg_hba_default %}
 {% if connection.comment is defined %}
 # {{connection.comment}}
 {% endif %}
